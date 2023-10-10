@@ -23,9 +23,9 @@ namespace LearnOneProvincesVN.Api.Controllers
             _mapper = mapper;
         }
 
-        private BaseResponse<object> BaseResponTemplate(string message, object ojct)
+        private BaseResponse<object> BaseResponTemplate(HttpStatusCode httpStatusCode, string message, object ojct)
         {
-            return new BaseResponse<object>(HttpStatusCode.OK, message, 0, ojct);
+            return new BaseResponse<object>(httpStatusCode, message, 0, ojct);
         }
 
         private DistrictsDtos MapperObject(object ojct)
@@ -36,38 +36,78 @@ namespace LearnOneProvincesVN.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> getAll(int? PageNumber = 1, int? PageSize = 5)
         {
-            var result = _districtsService.GetAll();
-            var page = result.ToPagedList((int)PageNumber, (int)PageSize);
-            var pagingList = new Paging<IPagedList<DistrictsDtos>>(page.PageNumber, page.PageSize, page.PageCount, page);
-            return Ok(BaseResponTemplate("Thanh cong", pagingList));
+            try
+            {
+                var result = _districtsService.GetAll();
+                var page = result.ToPagedList((int)PageNumber, (int)PageSize);
+                var pagingList = new Paging<IPagedList<DistrictsDtos>>(page.PageNumber, page.PageSize, page.PageCount, page);
+                return Ok(BaseResponTemplate(HttpStatusCode.OK, "Successfully", pagingList));
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return Ok(BaseResponTemplate(HttpStatusCode.NotAcceptable, "Error", null));
+            }
+
         }
 
         [HttpPost]
         public async Task<IActionResult> AddAsync(DistrictAddRequest districtAddRequest)
         {
-            _districtsService.AddAsync(MapperObject(districtAddRequest));
-            return Ok(BaseResponTemplate("Them thanh cong", districtAddRequest));
+            try
+            {
+                await _districtsService.AddAsync(MapperObject(districtAddRequest));
+                return Ok(BaseResponTemplate(HttpStatusCode.OK, "Successfully", districtAddRequest));
+            }
+            catch (Exception ex)
+            {
+                return Ok(BaseResponTemplate(HttpStatusCode.NotAcceptable, "Error", null));
+            }
+
         }
         [HttpPut]
         public async Task<IActionResult> UpdateAsync(DistrictUpdateRequest districtUpdateRequest)
         {
-            _districtsService.UpdateAsync(MapperObject(districtUpdateRequest));
-            return Ok(BaseResponTemplate("Cap nhat thanh cong", districtUpdateRequest));
+            try
+            {
+                _districtsService.UpdateAsync(MapperObject(districtUpdateRequest));
+                return Ok(BaseResponTemplate(HttpStatusCode.OK, "Successfully", districtUpdateRequest));
+            }
+            catch (Exception ex)
+            {
+                return Ok(BaseResponTemplate(HttpStatusCode.NotAcceptable, "Error", null));
+            }
+
         }
         [HttpDelete]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            _districtsService.DeleteAsync(id);
+            try
+            {
+                _districtsService.DeleteAsync(id);
+                return Ok(BaseResponTemplate(HttpStatusCode.OK, "Successfully", "null"));
+            }
+            catch (Exception ex)
+            {
+                return NotFound("Invald");
+            }
 
-            return Ok(BaseResponTemplate("Xoa thanh cong", "null"));
         }
         [HttpGet("/Tim-Kiem-Districts")]
         public async Task<IActionResult> timKiem(string name, int? PageNumber = 1, int? PageSize = 5)
         {
-            var result = _districtsService.GetAll().Where(p => p.Districs_Name.Contains(name));
-            var page = result.ToPagedList((int)PageNumber, (int)PageSize);
-            var pagingList = new Paging<IPagedList<DistrictsDtos>>(page.PageNumber, page.PageSize, page.PageCount, page);
-            return Ok(BaseResponTemplate("Thanh cong", pagingList));
+            try
+            {
+                var result = _districtsService.GetAll().Where(p => p.Districs_Name.Contains(name));
+                var page = result.ToPagedList((int)PageNumber, (int)PageSize);
+                var pagingList = new Paging<IPagedList<DistrictsDtos>>(page.PageNumber, page.PageSize, page.PageCount, page);
+                return Ok(BaseResponTemplate(HttpStatusCode.OK, "Successfully", pagingList));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Server Error");
+            }
+
         }
     }
 }

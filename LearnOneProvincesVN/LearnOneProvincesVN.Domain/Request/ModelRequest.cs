@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,21 @@ namespace LearnOneProvincesVN.Domain.Request
         public int ID { get; set; }
         public string Wards_Name { get; set; }
         public int? Districts_ID { get; set; }
+    }
+    public class Register
+    {
+        [Required(ErrorMessage = "Not null")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Not null")]
+        public string Email { get; set; }
+        public string PassWord { get; set; }
+        public string ConfirmPassWord { get; set; }
+    }
+    public class SignIn
+    {
+        [Required(ErrorMessage = "Not null UserName, Please!")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Not null PassWord, Please!")]
+        public string PassWord { get; set; }
     }
 }

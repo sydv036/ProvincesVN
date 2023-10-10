@@ -8,6 +8,6 @@ namespace LearnOneProvincesVN.Data.IEntity
 {
     public interface IEntity<TKey> 
     {
-        TKey ID { get; set; }
+        public TKey ID { get; set; }
     }
 }

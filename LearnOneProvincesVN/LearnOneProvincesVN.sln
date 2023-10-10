@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnOneProvincesVN.Api", "LearnOneProvincesVN\LearnOneProvincesVN.Api.csproj", "{D6BD3813-3557-4E6C-A856-B1FCFFB9F05C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnOneProvincesVN.Api", "LearnOneProvincesVN\LearnOneProvincesVN.Api.csproj", "{D6BD3813-3557-4E6C-A856-B1FCFFB9F05C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnOneProvincesVN.Data", "LearnOneProvinces.Data\LearnOneProvincesVN.Data.csproj", "{29A1F300-40BC-4101-8037-B9D58DDE9780}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnOneProvincesVN.Data", "LearnOneProvinces.Data\LearnOneProvincesVN.Data.csproj", "{29A1F300-40BC-4101-8037-B9D58DDE9780}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnOneProvincesVN.Reponsitory", "LearnOneProvincesVN.Reponsitory\LearnOneProvincesVN.Reponsitory.csproj", "{64DD4E60-840E-46D8-A2FC-39B7DAC074F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnOneProvincesVN.Reponsitory", "LearnOneProvincesVN.Reponsitory\LearnOneProvincesVN.Reponsitory.csproj", "{64DD4E60-840E-46D8-A2FC-39B7DAC074F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnOneProvincesVN.Service", "LearnOneProvincesVN.Service\LearnOneProvincesVN.Service.csproj", "{32FC6A07-72AD-4C9C-A11A-F3BD9BA232E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnOneProvincesVN.Service", "LearnOneProvincesVN.Service\LearnOneProvincesVN.Service.csproj", "{32FC6A07-72AD-4C9C-A11A-F3BD9BA232E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnOneProvincesVN.Domain", "LearnOneProvincesVN.Domain\LearnOneProvincesVN.Domain.csproj", "{DD60FAEE-DA77-4536-A5C2-4F1CA3799BC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnOneProvincesVN.Domain", "LearnOneProvincesVN.Domain\LearnOneProvincesVN.Domain.csproj", "{DD60FAEE-DA77-4536-A5C2-4F1CA3799BC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

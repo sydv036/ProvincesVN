@@ -47,7 +47,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IProvinceReponsitory, ProvincesReponsitoryImpl>();
 builder.Services.AddScoped<IProvincesService, ProvincesServiceImpl>();
